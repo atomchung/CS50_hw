@@ -1,0 +1,49 @@
+1. TODO  
+Q.What’s stdint.h?
+A. It defined the length of memory for each variavle
+
+2.  TODO
+Q. What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+A. To understand how many memory you are going to use for each data type. 
+
+3.  TODO
+Q.How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively?
+A.BYTE: 8 bit / DWORD: 32 bit / LONG: 32 bit/ WORD: 16 bit.
+
+4.  TODO
+Q.What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? 
+Leading bytes used to identify file formats (with high probability) are generally called "magic numbers."
+A. WORD
+
+5.  TODO
+Q.What’s the difference between bfSize and biSize?
+A. bfSize is the size of the bmp file, which includes the headerfiles.
+   biSize is the size of the BITMAPINFOHEADER header file.
+
+6.  TODO
+Q.What does it mean if biHeight is negative?
+A.If biHeight is negative, the bitmap is a top-down DIB with the origin at the upper left corner.
+
+7.  TODO
+Q.What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+A.biBitCount
+
+8.  TODO
+Q.Why might fopen return NULL in lines 24 and 32 of copy.c?
+A.If computer is lack of memory, it might face problem to create new file.
+
+9.  TODO
+Q.Why is the third argument to fread always 1 in our code?
+A.Read 1 bit each time.
+
+10. TODO
+Q.What value does line 65 of copy.c assign to padding if bi.biWidth is 3?
+A.3 
+
+11. TODO
+Q.What does fseek do?
+A.fseek allows you to change the location of the file pointer.
+
+12. TODO
+Q.What is SEEK_CUR?
+A. Currrnt location to set a pointer.
