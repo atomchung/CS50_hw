@@ -7,7 +7,7 @@
 /**
  * Common Data Types 
  *
- * The data types in this section are essentially aliases(別名) for C/C++ 
+ * The data types in this section are essentially aliases for C/C++ 
  * primitive data types.
  *
  * Adapted from https://msdn.microsoft.com/en-us/library/cc230309.aspx.
