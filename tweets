@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+
+# TODO
+import os
+import sys
+import nltk
+import helpers
+
+from analyzer import Analyzer
+from termcolor import colored
+
+
+def main():
+
+    # ensure proper usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets twitter_acoount")
+        
+    # get tweets 透過第二個 command line argument 來拿到twitter id
+    if helpers.get_user_timeline(sys.argv[1]) == None:
+        sys.exit("Can't get the data from this users")
+    
+    # 從 twitter 中撈出的資料為何？ 一個 [] 裡面包含很多 string
+    all_tweet =  helpers.get_user_timeline(sys.argv[1] , count =50)
+    tokenizer = nltk.tokenize.TweetTokenizer()
+    
+    # instantiate analyzer
+    positives = os.path.join(sys.path[0], "positive-words.txt")
+    negatives = os.path.join(sys.path[0], "negative-words.txt")
+    analyzer = Analyzer(positives, negatives)
+    
+    # tokenize the tweet
+    ## 將一個人近期的 tweets 轉乘一則一則的 tweet
+    
+    tokens = ()
+    ## n 表示第幾則 tweet
+    n = 0
+    
+    for each_tweet in all_tweet:
+        ## 取出第幾則 tweet 來進行 tokenize 
+        tokens =  all_tweet[n]
+        n += 1
+        # analyze tweet
+        ## 再透過 analye 將一則 tweet 轉多個文字
+        score = analyzer.analyze(tokens)
+        if score > 0.0:
+            print(colored(score, "green"),colored(tokens, "green"))
+        elif score < 0.0:
+            print(colored(score, "red"),colored(tokens, "red"))
+        else:
+            print(colored(score, "yellow"),colored(tokens, "yellow"))
+
+
+if __name__ == "__main__":
+    main()
